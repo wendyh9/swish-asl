@@ -1,0 +1,45 @@
+body {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(#81d4fa, #bbb2e5);
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #020403;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #fedebe;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Style buttons */
+button {
+  background-color: #acdf87;
+  border-radius: 10px;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-weight: 550;
+  font-size: 25px;
+  padding: 15px;
+
+  filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+}
+
+/*Hover effect on buttons*/
+button:hover {
+  background-color: #6ed272;
+}
+
+/* Texts on pages **Let's learn ASL, Pick a ..*/
+p1 {
+  font-size: 60px;
+  font-weight: 600;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+}
