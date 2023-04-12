@@ -98,3 +98,47 @@ p2 {
 #level1 {
   padding-top: 30px;
 }
+
+.loginPopup {
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+  
+.formPopup {
+  display: none;
+  position: fixed;
+  left: 45%;
+  top: 5%;
+  transform: translate(-50%, 5%);
+  border: 3px solid #999999;
+  z-index: 9;
+}
+  
+.formContainer {
+  max-width: 300px;
+  padding: 20px;
+  background-color: #fff;
+}
+  
+  
+  
+  
+#output_canvas{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  position: absolute;
+  top: 192.5px;
+  bottom: 0;
+  z-index: 2;
+}
+
+#input_video{
+  z-index: 3;
+}
+  
+#container {
+  margin: 0px auto;
+  width: 500px;
+  height: 375px;
+}
