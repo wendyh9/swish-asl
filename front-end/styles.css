@@ -1,15 +1,14 @@
 body {
-  height: 100vh;
-  width: 100%;
-  background-image: linear-gradient(#81d4fa, #bbb2e5);
-}
+background-image: url("imagebackground.gif");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+
+  }
 
 /* Add a black background color to the top navigation */
 .topnav {
   overflow: hidden;
-  font-family: Comic Sans MS, Comic Sans, cursive;
-  font-display: Center;
-  font-size: larger;
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-display: Center;
   font-size: larger;
@@ -19,12 +18,9 @@ body {
 .topnav a {
   display: center;
   color: #020202;
-  display: center;
-  color: #020202;
   text-align: center;
   padding: 10px 10px;
   text-decoration: none;
-  font-size: 15px;
   font-size: 15px;
 }
 
@@ -51,6 +47,21 @@ button {
 
   filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
 }
+/*
+#left {
+  right: 50px;
+  float: left;
+  border-radius: 30px;
+  bottom: 100px;
+  padding: 15px;
+}
+
+#right {
+  float: right;
+  border-radius: 30px;
+  top: 100px;
+  padding: 15px;
+}*/
 
 * {
   box-sizing: border-box;
@@ -74,12 +85,6 @@ button {
 /*Hover effect on buttons*/
 .startBTN:hover {
   background-color: #6ed272;
- 
-}
-
-button:hover {
-  background-color: #f1bda0;
- 
 }
 
 button:hover {
@@ -90,48 +95,21 @@ button:hover {
 p1 {
   font-size: 80px;
   font-weight: 900;
-  font-size: 80px;
-  font-weight: 900;
   font-family: Comic Sans MS, Comic Sans, cursive;
   text-align: center;
   
 }
-
-.loginPopup {
-  position: relative;
+p2 {
+  font-size: 50px;
+  font-weight: 900;
+  font-family: Comic Sans MS, Comic Sans, cursive;
   text-align: center;
-  width: 100%;
-}
-.formPopup {
-  display: none;
-  position: fixed;
-  left: 45%;
-  top: 5%;
-  transform: translate(-50%, 5%);
-  border: 3px solid #999999;
-  z-index: 9;
-}
-.formContainer {
-  max-width: 300px;
-  padding: 20px;
-  background-color: #fff;
 }
 
-#output_canvas{
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  position: absolute;
-  top: 192.5px;
-  bottom: 0;
-  z-index: 2;
+.level {
+  margin-bottom: 20px;
 }
 
-#input_video{
-  z-index: 3;
-}
-
-#container {
-  margin: 0px auto;
-  width: 500px;
-  height: 375px;
+#level1 {
+  padding-top: 30px;
 }
