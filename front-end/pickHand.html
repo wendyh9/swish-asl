@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <title>swish</title>
+  <title>SWISH</title>
   <head>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <body>
     <div class="topnav">
-      <a class="active" href="./index.html">swish</a>
+      <a class="active" href="./index.html"><img src="logo.jpg" alt ="swish Logo" width="80cm" 
+        height="80cm"/></a>
     </div>
-    <p1><center>
-      Are you...
-    </p1>
+    <p1><center> Are you... </p1>
+
+    <!--
     <form action="picklevel.html">
-      <button type="submit" class="button">Left-handed</button>
+      <button type="submit" " class="button" id="left">Left-handed</button>
     </form>
 
     <form action="picklevel.html">
-      <button type="submit" class="button">Right-handed</button>
-    </form>
+      <button type="submit" class="button" id="right">Right-handed</button>
+    </form>-->
+
+    <div class="row">
+      <div class="column">
+        <form action="picklevel.html">
+          <input name="lefthand" type="image" src="left-hand.JPG" id="left" style="display: flex; padding-left: 2.5in;" />
+        </form>
+      </div>
+      <div class="column">
+        <form action="picklevel.html">
+          <input
+            name="righthand"
+            type="image"
+            src="right-hand.JPG"
+            id="right"
+            style="padding-left: 2in;"
+          />
+        </form>
+
+      </div>
+    </div>
+  </div>
   </body>
 </html>
