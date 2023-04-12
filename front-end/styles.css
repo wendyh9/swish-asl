@@ -3,7 +3,7 @@ background-image: url("imagebackground.gif");
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-size: cover;
-
+overflow-y: hidden;
   }
 
 /* Add a black background color to the top navigation */
@@ -47,21 +47,6 @@ button {
 
   filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
 }
-/*
-#left {
-  right: 50px;
-  float: left;
-  border-radius: 30px;
-  bottom: 100px;
-  padding: 15px;
-}
-
-#right {
-  float: right;
-  border-radius: 30px;
-  top: 100px;
-  padding: 15px;
-}*/
 
 * {
   box-sizing: border-box;
