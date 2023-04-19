@@ -136,9 +136,23 @@ p2 {
 #input_video{
   z-index: 3;
 }
+
+.level-title {
+  font-size: 4.5rem;
+  position: relative;
+  top: -60px;
+}
   
-#container {
-  margin: 0px auto;
-  width: 500px;
-  height: 375px;
+
+#img {
+  margin-left: 250px;
+  width: 390px;
+  position: relative;
+  top: 10px;
+}
+
+#camera {
+  margin-left: 800px;
+  position: relative;
+  top: -750px;
 }
