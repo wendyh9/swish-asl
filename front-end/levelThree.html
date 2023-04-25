@@ -11,11 +11,35 @@
       <a href="./index.html">swish</a>
     </div> -->
     <div class="topnav">
-      <a href="./index.html"> <img src="logo.jpg" alt ="swish Logo" width="80cm" 
-        height="80cm"/></a>
+      <a href="./index.html">
+        <img src="logo.jpg" alt="swish Logo" width="80cm" height="80cm"
+      /></a>
+      <div class="audio">
+        <audio id="audiobg">
+          <source src="hourMSC.wav" type="audio/wav" />
+        </audio>
+
+        <button class="audio" onclick="pauseAudio()">
+          <img src="musicOff.jpg" height="40cm" width="50cm" />
+        </button>
+        <button class="audio" onclick="playAudio()">
+          <img src="musicOn.jpg" height="40cm" width="50cm" />
+        </button>
+      </div>
     </div>
     <center>
-    <p1>Level Three</p1>
+      <p1>Level Three</p1>
     </center>
+    <script>
+      var x = document.getElementById("audiobg");
+
+      function playAudio() {
+        x.play();
+      }
+
+      function pauseAudio() {
+        x.pause();
+      }
+    </script>
   </body>
 </html>

@@ -3,13 +3,29 @@
   <title>SWISH</title>
   <title>SWISH</title>
   <head>
-
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-	  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-	  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
-	  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
-	  <script defer language="javascript" type="module" src="../backend_testing/WebASLtest/MediaPipe.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      language="javascript"
+      type="module"
+      src="../backend_testing/WebASLtest/MediaPipe.js"
+    ></script>
 
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -20,37 +36,64 @@
       <a href="./index.html">swish</a>
     </div> -->
     <div class="topnav">
-      <a href="./index.html"><img src="logo.jpg" alt ="swish Logo" width="80cm" 
-        height="80cm"/></a>
-<center>
-    <p1 >Level One</p1>
-  </center>
-  </div>
+      <a href="./index.html"
+        ><img src="logo.jpg" alt="swish Logo" width="80cm" height="80cm"
+      /></a>
+      <div class="audio">
+        <audio id="audiobg">
+          <source src="hourMSC.wav" type="audio/wav" />
+        </audio>
 
-
-      <div id="container">
-        <img id="img" src="">
-        <video id="input_video"></video>
-	      <canvas id="output_canvas"></canvas>
+        <button class="audio" onclick="pauseAudio()">
+          <img src="musicOff.jpg" height="40cm" width="50cm" />
+        </button>
+        <button class="audio" onclick="playAudio()">
+          <img src="musicOn.jpg" height="40cm" width="50cm" />
+        </button>
       </div>
+      <center>
+        <p1>Level One</p1>
+      </center>
+    </div>
 
-      <div class="loginPopup">
-        <div class="formPopup" id="popupForm">
-          <form action="picklevel.html" class="formContainer">
-            <h2>Well Done!</h2>
-            <p2> if you would like to continue to the next level press "Continue" </p2>
-            <p2> or if you want to pick a level yourself press "Pick Level"</p2>
-            <button type="submit" class="btn">Pick Level</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Continue</button>
-          </form>
-        </div>
+    <div id="container">
+      <img id="img" src="" />
+      <video id="input_video"></video>
+      <canvas id="output_canvas"></canvas>
+    </div>
+
+    <div class="loginPopup">
+      <div class="formPopup" id="popupForm">
+        <form action="picklevel.html" class="formContainer">
+          <h2>Well Done!</h2>
+          <p2>
+            if you would like to continue to the next level press "Continue"
+          </p2>
+          <p2> or if you want to pick a level yourself press "Pick Level"</p2>
+          <button type="submit" class="btn">Pick Level</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">
+            Continue
+          </button>
+        </form>
       </div>
+    </div>
 
-      <script>
-        function closeForm(){
-          window.location.replace("levelTwo.html");
-        }
-      </script>
+    <script>
+      function closeForm() {
+        window.location.replace("levelTwo.html");
+      }
+    </script>
 
+    <script>
+      var x = document.getElementById("audiobg");
+
+      function playAudio() {
+        x.play();
+      }
+
+      function pauseAudio() {
+        x.pause();
+      }
+    </script>
   </body>
 </html>
