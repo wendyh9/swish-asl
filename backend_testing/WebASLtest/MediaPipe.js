@@ -9,10 +9,10 @@ const pop = document.getElementById('popupForm');
 videoElement.style.display = "none";
 
 //setting elements width and height 
-videoElement.width = 500;
-videoElement.height = 375;
-canvasElement.width = 500;
-canvasElement.height = 375;
+videoElement.width = 750;
+videoElement.height = 575;
+canvasElement.width = 750;
+canvasElement.height = 575;
 
 /*  arrays for later use
     sequence: will hold the landmarks detected from the webcam using mediapipe hands detection, 

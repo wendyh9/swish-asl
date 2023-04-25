@@ -139,8 +139,29 @@ p2 {
   z-index: 3;
 }
 
+<<<<<<< HEAD
 #container {
   margin: 0px auto;
   width: 500px;
   height: 375px;
+=======
+.level-title {
+  font-size: 4.5rem;
+  position: relative;
+  top: -60px;
+}
+  
+
+#img {
+  margin-left: 250px;
+  width: 390px;
+  position: relative;
+  top: 10px;
+}
+
+#camera {
+  margin-left: 800px;
+  position: relative;
+  top: -750px;
+>>>>>>> a6277ce4055676f93de296e8caf546af3e94b561
 }
