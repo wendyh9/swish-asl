@@ -169,3 +169,18 @@ p2 {
 #hand-imgs {
   padding-left: 20%;
 }
+
+#pick-hand-pos-up {
+  position: relative;
+  bottom: 80px;
+}
+
+#pick-level-pos-up {
+  position: relative;
+  bottom: 100px;
+}
+
+.levels-pos-up {
+  position: relative;
+  bottom: 90px;
+}

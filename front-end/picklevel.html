@@ -7,8 +7,8 @@
 
   <body>
     <div class="topnav">
-      <a class="active" href="./index.html"><img src="logo.jpg" alt ="swish Logo" width="80cm" 
-        height="80cm"/></a>
+      <a class="active" href="./index.html"><img src="logo.jpg" alt ="swish Logo" width="10%" 
+        height="10%"/></a>
 
       <!--Adding audio file into the page -->
       <audio id="bgMusic" src="bgAudio.wav"></audio>
@@ -19,32 +19,37 @@
 
     </div>
 
-    <div>
+    <div id="pick-level-pos-up">
+      <div>
+        <center>
+          <a class="active" href="./pickHand.html"><img src="Back.gif" alt ="Logo" width="220cm" 
+              height="150cm"/></a>
+          <p1 style="position: relative; bottom: 25px;">Pick a level</p1>
+        </center>
+      </div>
+      
+      
       <center>
-      <a class="active" href="./pickHand.html"><img src="Back.gif" alt ="Logo" width="220cm" 
-          height="150cm"/></a>
-    <p1>Pick a level</p1>
-     
+        <form action="./levelOne.html">
+          <button type="submit" class="button level" id="level1">Level 1</button>
+        </form>
+
+        <form action="./levelTwo.html">
+          <button type="submit" class="button level">Level 2</button>
+        </form>
+
+        <form action="./levelThree.html">
+          <button type="submit" class="button level">Level 3</button>
+        </form>
+
+        <form action="./levelFour.html">
+          <button type="submit" class="button level">Level 4</button>
+        </form>
+
+        <script src="audio.js"></script>
+      </center>
     </div>
-    <center>
-    <form action="./levelOne.html">
-      <button type="submit" class="button level" id="level1">Level 1</button>
-    </form>
 
-    <form action="./levelTwo.html">
-      <button type="submit" class="button level">Level 2</button>
-    </form>
 
-    <form action="./levelThree.html">
-      <button type="submit" class="button level">Level 3</button>
-    </form>
-
-    <form action="./levelFour.html">
-      <button type="submit" class="button level">Level 4</button>
-    </form>
-
-    <script src="audio.js"></script>
-
-  </center>
   </body>
 </html>

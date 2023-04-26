@@ -33,7 +33,7 @@
   <body>
     <div class="topnav">
       <a href="./index.html"
-        ><img src="logo.jpg" alt="swish Logo" width="80cm" height="80cm"
+        ><img src="logo.jpg" alt="swish Logo" width="10%" height="10%"
       /></a>
 
       <!--Adding audio file into the page -->
@@ -48,39 +48,41 @@
           width="50cm"
         />
       </button>
+    </div>
 
+    <div class="levels-pos-up">      
       <center>
         <a class="active" href="./picklevel.html"
           ><img src="Back.gif" alt="Logo" width="220cm" height="150cm"
         /></a>
         <p1 class="level-title">Level One</p1>
       </center>
-    </div>
+      <div>
+        <img id="img" src="" />
 
-    <div>
-      <img id="img" src="" />
+        <div id="camera">
+          <video id="input_video"></video>
+          <canvas id="output_canvas"></canvas>
+        </div>
+      </div>
 
-      <div id="camera">
-        <video id="input_video"></video>
-        <canvas id="output_canvas"></canvas>
+      <div class="loginPopup">
+        <div class="formPopup" id="popupForm">
+          <form action="picklevel.html" class="formContainer">
+            <h2>Well Done!</h2>
+            <p2>
+              if you would like to continue to the next level press "Continue"
+            </p2>
+            <p2> or if you want to pick a level yourself press "Pick Level"</p2>
+            <button type="submit" class="btn">Pick Level</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">
+              Continue
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-
-    <div class="loginPopup">
-      <div class="formPopup" id="popupForm">
-        <form action="picklevel.html" class="formContainer">
-          <h2>Well Done!</h2>
-          <p2>
-            if you would like to continue to the next level press "Continue"
-          </p2>
-          <p2> or if you want to pick a level yourself press "Pick Level"</p2>
-          <button type="submit" class="btn">Pick Level</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">
-            Continue
-          </button>
-        </form>
-      </div>
-    </div>
+    
 
     <script>
       function closeForm() {
