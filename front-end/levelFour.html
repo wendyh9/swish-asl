@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <title>SWISH</title>
+  <title>SWISH</title>
   <head>
-    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+	  <script defer language="javascript" type="module" src="../backend_testing/MediaPipe.js"></script>
+
+    <link rel="stylesheet" href="./styles.css" />
   </head>
 
   <body>
     <div class="topnav">
       <a href="./index.html"
-        ><img src="logo.jpg" alt="swish Logo" width="80cm" height="80cm" />
-      </a>
+        ><img src="logo.jpg" alt="swish Logo" width="80cm" height="80cm"
+      /></a>
+
       <!--Adding audio file into the page -->
       <audio id="bgMusic" src="bgAudio.wav"></audio>
       <!--Create buttons for music On/Off -->
@@ -29,6 +39,54 @@
       /></a>
       <p1 class="level-title">Level Four</p1>
     </center>
+
     <script src="audio.js"></script>
+
+
+      <!-- <div id="container">
+        <img id="img" src="">
+        <div id="camera">
+          <video id="input_video"></video>
+	        <canvas id="output_canvas"></canvas>
+        </div>
+        
+      </div> -->
+
+      <div>
+        <div class="loginPopup">
+          <div class="formPopup" id="popupForm">
+            <form action="picklevel.html" class="formContainer">
+              <h2>Well Done!</h2>
+              <span style="font-size:500%;color:yellow;">&starf;</span>
+              <span style="font-size:500%;color:yellow;">&starf;</span>
+              <span style="font-size:500%;color:yellow;">&starf;</span>
+              <button type="submit" class="btn" style="font-size: medium;">Pick Level</button>
+              <button type="button" class="btn cancel" style="font-size: medium;" onclick="closeForm()">Continue</button>
+            </form>
+          </div>
+        </div>
+        
+        <img id="img" src="">
+
+        <div id="camera">
+          <video id="input_video"></video>
+	        <canvas id="output_canvas"></canvas>
+        </div>
+
+        <div id="correct"> 
+          <p5 > Correct </p5>
+        </div>
+      </div>  
+
+      <audio controls id="audio">
+        <source src="./chime.mp3" type="audio/mp3">
+      </audio>
+
+      <script>
+        function closeForm(){
+          window.location.replace("pickLevel.html");
+        }
+      </script>
+
   </body>
 </html>
