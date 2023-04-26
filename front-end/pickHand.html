@@ -11,35 +11,24 @@
     <div class="topnav">
       <a class="active" href="./index.html"><img src="logo.jpg" alt ="swish Logo" width="80cm" 
         height="80cm"/></a>
-        <div class="audio">
-          <audio id="audiobg">
-            <source src="hourMSC.wav" type="audio/wav">
-          </audio>
 
-          <button class="audio" onclick="pauseAudio()">
-            <img src="musicOff.jpg" height="40cm" width="50cm" >
-          </button> 
-          <button class="audio" onclick="playAudio()">
-            <img src="musicOn.jpg" height="40cm" width="50cm">
-          </button>
-        </div>
+      <!--Adding audio file into the page -->
+      <audio id="bgMusic" src="bgAudio.wav"></audio>
+      <!--Create buttons for music On/Off -->
+      <button id="mscBtn" onclick="togglePlayPause()">
+      <img id="mscImage" src="musicOn.jpg" alt="Play" height="50cm" width="50cm">
+      </button>
+
     </div>
-  <div>
+
+    <div>
     <center>
     <a class="active" href="./index.html"><img src="Back.gif" alt ="Logo" width="220cm" 
       height="150cm"/></a>
     <p1> Are you...</p1>
-   </center>
-  </div>
-    <!--
-    <form action="picklevel.html">
-      <button type="submit" " class="button" id="left">Left-handed</button>
-    </form>
-
-    <form action="picklevel.html">
-      <button type="submit" class="button" id="right">Right-handed</button>
-    </form>-->
-
+    </center>
+    </div>
+ 
     <div class="row">
       <div class="column">
         <form action="picklevel.html">
@@ -65,17 +54,6 @@
     </div>
   </div>
 
-  <script>
-    var x = document.getElementById("audiobg"); 
-
-    function playAudio() { 
-      x.play(); 
-    } 
-
-    function pauseAudio() { 
-      x.pause(); 
-    }
-
-    </script>
+  <script src="audio.js"></script>
   </body>
 </html>
