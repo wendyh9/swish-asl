@@ -160,3 +160,12 @@ p2 {
   position: relative;
   top: -750px;
 }
+
+.hand-img {
+  width: 75%;
+  height: auto;
+}
+
+#hand-imgs {
+  padding-left: 20%;
+}
