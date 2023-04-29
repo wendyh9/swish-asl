@@ -44,7 +44,7 @@ button {
   font-weight: 550;
   font-size: 45px;
   padding: 35px;
-
+  cursor: pointer;
   filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
 }
 
