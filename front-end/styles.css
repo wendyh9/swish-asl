@@ -129,14 +129,14 @@ p5 {
   display: none;
   position: absolute;
   left: 250px;
-  top: 10px;
+  top: 5px;
   border: 3px solid #999999;
   z-index: 9;
 }
   
 .formContainer {
   max-width: 390px;
-  height: 537px;
+  height: 500px;
   padding: 20px;
   background-color: #fff;
 }
@@ -154,7 +154,7 @@ p5 {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   position: absolute;
-  top: 192.5px;
+  top: 310px;
   bottom: 0;
   z-index: 2;
 }
@@ -175,7 +175,13 @@ p5 {
   margin-left: 250px;
   width: 390px;
   position: relative;
-  top: 10px;
+  top: 5px;
+}
+
+#word{
+  margin-left: 250px;
+  width: 390px;
+  height: 150px;
 }
 
 #camera {

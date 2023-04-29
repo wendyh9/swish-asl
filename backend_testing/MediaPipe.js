@@ -3,6 +3,7 @@ const videoElement = document.getElementById('input_video');
 const canvasElement = document.getElementById('output_canvas');
 const canvasCtx = canvasElement.getContext('2d');
 const img = document.getElementById('img');
+const wordimg = document.getElementById('word');
 const pop = document.getElementById('popupForm');
 const cor = document.getElementById('correct');
 const audio = document.getElementById('audio');
@@ -26,30 +27,43 @@ canvasElement.height = 450;
 let sequence = [];
 const completed = [];
 const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+let words = [];
 let arr = [];
-let start = 0;
-let end = 0;
-let done = 0;
 
-if(document.URL.includes("levelOne")){
-  start = 0;
-  end = 5;
-  done = 6;
+
+let start = 0;
+let done = 0;
+let len = 0;
+let src = "";
+
+if (document.URL.includes("levelOne")) {
+  wordimg.style.display = "none";
+  words = ["A", "E", "I", "O", "U"];
+  done = words.length;
+  img.width = 390;
+  img.height = 430;
 }
-else if(document.URL.includes("levelTwo")){
-  start = 6;
-  end = 11;
-  done = 6;
+else if (document.URL.includes("levelTwo")) {
+  src = "../backend_testing/animals/";
+  words = ["CAT", 'DOG', "PIG", "BIRD", "FISH"]
+  done = words.length;
+  img.width = 290;
+  img.height = 300;
+
 }
-else if(document.URL.includes("levelThree")){
-  start = 12;
-  end = 18;
-  done = 7;
+else if (document.URL.includes("levelThree")) {
+  src = "../backend_testing/verbs/";
+  words = ["RUN", 'JOG', "YELL", "SWIM", "DANCE"]
+  done = words.length;
+  img.width = 290;
+  img.height = 300;
 }
-else if(document.URL.includes("levelFour")){
-  start = 19;
-  end = 25;
-  done = 7;
+else if (document.URL.includes("levelFour")) {
+  src = "../backend_testing/challenge/";
+  words = ["QUIZ", 'ZIGZAG', "XYLOPHONE", "SWISH"]
+  done = words.length;
+  img.width = 290;
+  img.height = 300;
 }
 
 // loading of pre trained model into js using tensorflowjs converter
@@ -61,8 +75,12 @@ const model = await tf.loadLayersModel(MODEL_URL); // loading of model
 // load random letter image to start teaching user
 const img_src = "../front-end/alphabet/"; // location path of letter images
 let im = ""; // stores the letter to be used with .jpg attached (ex. "B.jpg")
-im = letters[randomIntFromInterval(start,end)] + ".jpg" // randomly choose letter from the alphabet and attach .jpg
+let word = words[randomIntFromInterval(start, words.length - 1)];
+im = word[0] + ".jpg";
 img.src = img_src + im; // combine path and desired letter image to create the full path for later use (ex. "../front-end/alphabet/B.jpg")
+if (!document.URL.includes("levelOne")) {
+  wordimg.src = src + (word + ".png");
+}
 
 // get random number between a min and max 
 function randomIntFromInterval(min, max) { // min and max included 
@@ -81,69 +99,84 @@ function onResults(results) {
     for (const landmarks of results.multiHandLandmarks) {
       // actual drawing of landmarks and their connectors
       drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS,
-        {color: '#6CEDFC', lineWidth: 5});
-      drawLandmarks(canvasCtx, landmarks, {color: '#FCA139', lineWidth: 2});
+        { color: '#6CEDFC', lineWidth: 5 });
+      drawLandmarks(canvasCtx, landmarks, { color: '#FCA139', lineWidth: 2 });
 
       // push the coordinates of landmarks to sequence
       sequence.push(keypoints(landmarks));
       sequence = sequence.slice(-30);
-      if(sequence.length == 30){
+      if (sequence.length == 30) {
         const input = tf.tensor(sequence.slice(-30)); // input holds sequence after being converted to a tensor object
         const temp = tf.expandDims(input, 0); // in order to be used by the model the shape of input must be adjusted from 30x63 to 1x30x63
-        const res = model.predict(temp); 
+        const res = model.predict(temp);
 
         arr.push(letters[findMax(res)]);
-        const allEqual = arr => arr.every( v => v == arr[0]);
-        if(arr.length >= 5){
-          if(allEqual(arr.slice(-5))){
+        const allEqual = arr => arr.every(v => v == arr[0]);
+        if (arr.length >= 5) {
+          if (allEqual(arr.slice(-5))) {
             console.log(arr.slice(-5)[0]);
-            if(Math.max(res) < 0.7){
+            if (Math.max(res) < 0.7) {
               continue;
             }
 
-            if(arr.slice(-5)[0] == im.substring(0,1) && completed.includes(im.substring(0,1)) == false){
+            if (completed.length == done) {
+              pop.style.display = 'block';
+              wordimg.style.display = 'none';
+              if (document.URL.includes("levelOne")) {
+                localStorage.setItem('star1', '&starf;');
+                localStorage.setItem('star2', '&starf;');
+                localStorage.setItem('star3', '&starf;');
+              }
+              else if (document.URL.includes("levelTwo")) {
+                localStorage.setItem('star4', '&starf;');
+                localStorage.setItem('star5', '&starf;');
+                localStorage.setItem('star6', '&starf;');
+              }
+              else if (document.URL.includes("levelThree")) {
+                localStorage.setItem('star7', '&starf;');
+                localStorage.setItem('star8', '&starf;');
+                localStorage.setItem('star9', '&starf;');
+              }
+              else if (document.URL.includes("levelFour")) {
+                localStorage.setItem('star10', '&starf;');
+                localStorage.setItem('star11', '&starf;');
+                localStorage.setItem('star12', '&starf;');
+              }
+              break;
+            }
+            else if (arr.slice(-5)[0] == im.substring(0, 1) && len != word.length) {
               audio.play();
               cor.style.display = 'block'
               window.setTimeout(function () {
                 cor.style.display = 'none'
               }, 2500);
-    
-              im = letters[randomIntFromInterval(start,end)] + ".jpg"
-              img.src = img_src + im;
-    
-              // add letter into the completed array
-              completed.push(arr.slice(-5)[0]);
+
+              len += 1;
+              if (!document.URL.includes("levelOne")) {
+                if (len != word.length) {
+                  im = word[len] + ".jpg";
+                  img.src = img_src + im;
+                }
+              }
             }
-            // else if the user has completed this letter and they haven't completed all letters yet then generate new letter image
-            else if(completed.includes(im.substring(0,1)) == true && completed.length != done){
-              // while the first character of im is in completed keep generating a new letter
-              while(completed.includes(im.substring(0,1)) == true){
-                im = letters[randomIntFromInterval(start,end)] + ".jpg";
+            else if (len == word.length && completed.length != done) {
+              completed.push(word);
+
+              words.splice(words.indexOf(word), 1);
+
+              word = words[randomIntFromInterval(start, words.length - 1)];
+
+              if (words.length == 0) {
+                continue;
               }
-              img.src = img_src + im;
-            }
-            // else if the user has completed all letters in this level then display pop up to continue
-            else if (completed.length == done){
-              pop.style.display = 'block';
-              if(document.URL.includes("levelOne")){
-                localStorage.setItem('star1','&starf;');
-                localStorage.setItem('star2','&starf;');
-                localStorage.setItem('star3', '&starf;');
-              }
-              else if(document.URL.includes("levelTwo")){
-                localStorage.setItem('star4','&starf;');
-                localStorage.setItem('star5','&starf;');
-                localStorage.setItem('star6', '&starf;');
-              }
-              else if(document.URL.includes("levelThree")){
-                localStorage.setItem('star7','&starf;');
-                localStorage.setItem('star8','&starf;');
-                localStorage.setItem('star9', '&starf;');
-              }
-              else if(document.URL.includes("levelFour")){
-                localStorage.setItem('star10','&starf;');
-                localStorage.setItem('star11','&starf;');
-                localStorage.setItem('star12', '&starf;');
+
+              len = 0;
+
+              im = word[0] + ".jpg" // randomly choose letter from the alphabet and attach .jpg
+              img.src = img_src + im; // combine path and desired letter image to create the full path for later use (ex. "../front-end/alphabet/B.jpg")
+
+              if (!document.URL.includes("levelOne")) {
+                wordimg.src = src + (word + ".png");
               }
             }
           }
@@ -155,7 +188,7 @@ function onResults(results) {
 }
 
 // grab keypoints from the mediapie landmarks, keypoints are the x, y, and z coordinates of the landmarks returns an array
-function keypoints(landmarks){
+function keypoints(landmarks) {
   const temp = []; // holds the values to be returned
 
   // for each landmark push their x, y, and z values to temp array
@@ -168,12 +201,12 @@ function keypoints(landmarks){
 }
 
 // find the maximum number and it's index within an array 
-function findMax(res){
+function findMax(res) {
   const temp = res.dataSync(); // sync the passed value to be an array
   let max = 0;
   let index = 0;
-  for (const i in temp){
-    if (temp[i] > max){
+  for (const i in temp) {
+    if (temp[i] > max) {
       max = temp[i];
       index = i;
     }
@@ -183,9 +216,11 @@ function findMax(res){
 }
 
 // initialize the hands tracking from mediapipe
-const hands = new Hands({locateFile: (file) => {
-  return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
-}});
+const hands = new Hands({
+  locateFile: (file) => {
+    return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+  }
+});
 // settings for hands to detect two hands at a time with 50 percent as a minimum for it's confidence in tracking and detection
 hands.setOptions({
   maxNumHands: 1,
@@ -199,7 +234,7 @@ hands.onResults(onResults);
 
 const camera = new Camera(videoElement, {
   onFrame: async () => {
-  await hands.send({image: videoElement});
+    await hands.send({ image: videoElement });
   }
 });
 camera.start();
