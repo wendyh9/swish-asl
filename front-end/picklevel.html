@@ -47,6 +47,7 @@
 
     <form action="./levelThree.html">
       <button type="submit" class="button level" style="position: relative; bottom: 140px;">Verbs</button>
+
       <span id='star7' style="font-size:300%;color:yellow; position: relative; bottom: 140px;"">&star;</span>
       <span id='star8' style="font-size:300%;color:yellow; position: relative; bottom: 140px;"">&star;</span>
       <span id='star9' style="font-size:300%;color:yellow; position: relative; bottom: 140px;"">&star;</span>
@@ -54,12 +55,30 @@
 
     <form action="./levelFour.html">
       <button type="submit" class="button level" style="position: relative; bottom: 140px;">Challenge</button>
+
       <span id='star10' style="font-size:300%;color:yellow; position: relative; bottom: 140px;"">&star;</span>
       <span id='star11' style="font-size:300%;color:yellow; position: relative; bottom: 140px;"">&star;</span>
       <span id='star12' style="font-size:300%;color:yellow; position: relative; bottom: 140px;"">&star;</span>
     </form>
 
     <script src="audio.js"></script>
+
+
+    <script>
+      document.getElementById('star1').innerHTML = localStorage.getItem('star1');
+      document.getElementById('star2').innerHTML = localStorage.getItem('star2');
+      document.getElementById('star3').innerHTML = localStorage.getItem('star3');
+      document.getElementById('star4').innerHTML = localStorage.getItem('star4');
+      document.getElementById('star5').innerHTML = localStorage.getItem('star5');
+      document.getElementById('star6').innerHTML = localStorage.getItem('star6');
+      document.getElementById('star7').innerHTML = localStorage.getItem('star7');
+      document.getElementById('star8').innerHTML = localStorage.getItem('star8');
+      document.getElementById('star9').innerHTML = localStorage.getItem('star9');
+      document.getElementById('star10').innerHTML = localStorage.getItem('star10');
+      document.getElementById('star11').innerHTML = localStorage.getItem('star11');
+      document.getElementById('star12').innerHTML = localStorage.getItem('star12');
+
+    </script>
 
   </center>
 </div>

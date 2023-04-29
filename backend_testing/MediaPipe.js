@@ -6,11 +6,13 @@ const img = document.getElementById('img');
 const wordimg = document.getElementById('word');
 const pop = document.getElementById('popupForm');
 const cor = document.getElementById('correct');
+const incor = document.getElementById('incorrect');
 const audio = document.getElementById('audio');
 
 // setting video input to not be displayed so only canvas appears onscreen
 //videoElement.style.display = "none";
 cor.style.display = "none";
+incor.style.display = "none";
 audio.style.display = 'none';
 
 //setting elements width and height 
@@ -67,10 +69,15 @@ else if (document.URL.includes("levelFour")) {
 }
 
 // loading of pre trained model into js using tensorflowjs converter
-const MODEL_URL = '../backend_testing/right/model.json'; //location of model
-const model = await tf.loadLayersModel(MODEL_URL); // loading of model
+let MODEL_URL = ''; //location of model
+if(localStorage.getItem("hand") == "left"){
+  MODEL_URL = '../backend_testing/model_folder/model.json';
+}
+else{
+  MODEL_URL = '../backend_testing/right/model.json';
+}
 
-//"https://ivanmar4.github.io/testing/saved_model/model.json"
+const model = await tf.loadLayersModel(MODEL_URL); // loading of model
 
 // load random letter image to start teaching user
 const img_src = "../front-end/alphabet/"; // location path of letter images
@@ -114,8 +121,20 @@ function onResults(results) {
         const allEqual = arr => arr.every(v => v == arr[0]);
         if (arr.length >= 5) {
           if (allEqual(arr.slice(-5))) {
-            console.log(arr.slice(-5)[0]);
-            if (Math.max(res) < 0.7) {
+            
+            if(arr.slice(-25).length >= 25 && allEqual(arr.slice(-25))){
+              if(arr.slice(-25)[0] != im.substring(0, 1)){
+                cor.style.display = 'none'
+                incor.style.display = 'block'
+                window.setTimeout(function () {
+                  incor.style.display = 'none'
+                }, 2500);
+              }
+              arr = [];
+            } 
+
+
+            if (check(res) < 0.7) {
               continue;
             }
 
@@ -142,13 +161,13 @@ function onResults(results) {
                 localStorage.setItem('star11', '&starf;');
                 localStorage.setItem('star12', '&starf;');
               }
-              break;
             }
             else if (arr.slice(-5)[0] == im.substring(0, 1) && len != word.length) {
               audio.play();
-              cor.style.display = 'block'
+              incor.style.display = 'none';
+              cor.style.display = 'block';
               window.setTimeout(function () {
-                cor.style.display = 'none'
+                cor.style.display = 'none';
               }, 2500);
 
               len += 1;
@@ -158,6 +177,7 @@ function onResults(results) {
                   img.src = img_src + im;
                 }
               }
+              arr = [];
             }
             else if (len == word.length && completed.length != done) {
               completed.push(word);
@@ -171,6 +191,7 @@ function onResults(results) {
               }
 
               len = 0;
+              arr = [];
 
               im = word[0] + ".jpg" // randomly choose letter from the alphabet and attach .jpg
               img.src = img_src + im; // combine path and desired letter image to create the full path for later use (ex. "../front-end/alphabet/B.jpg")
@@ -213,6 +234,18 @@ function findMax(res) {
   }
   // return index of maximum number in the array
   return index;
+}
+
+function check(res){
+  const temp = res.dataSync(); // sync the passed value to be an array
+  let max = 0;
+  for (const i in temp) {
+    if (temp[i] > max) {
+      max = temp[i];
+    }
+  }
+  // return index of maximum number in the array
+  return max;
 }
 
 // initialize the hands tracking from mediapipe

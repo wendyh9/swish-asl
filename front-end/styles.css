@@ -110,6 +110,16 @@ p5 {
   color: #03ac13;
 }
 
+p6 {
+  font-size: 80px;
+  font-weight: 900;
+  font-size: 80px;
+  font-weight: 900;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  text-align: center;
+  color: #FF0000;
+}
+
 .level {
   margin-bottom: 20px;
 }
@@ -142,10 +152,18 @@ p5 {
 }
   
 #correct{
-  top: -120.5px;
+  top: -30.5px;
   left: 950px;
   bottom: 0;
   z-index: 2;
+  position: relative;
+}
+
+#incorrect{
+  top: -30.5px;
+  left: 890px;
+  bottom: 0;
+  z-index: 4;
   position: relative;
 }
   
@@ -154,7 +172,7 @@ p5 {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   position: absolute;
-  top: 310px;
+  top: 290px;
   bottom: 0;
   z-index: 2;
 }

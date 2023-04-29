@@ -32,15 +32,25 @@
   
     <div class="row" id="hand-imgs">
       <div class="column">
-        <a href="./picklevel.html"><img src="left-hand.png" alt="left hand image" class="hand-img" style ="position: relative; bottom: 150px;"></a>
+        <a href="./picklevel.html"><img src="left-hand.png" alt="left hand image" class="hand-img" style ="position: relative; bottom: 150px;" onclick="hand(1)"></a>
       </div>
       <div class="column">
-        <a href="picklevel.html"><img src="right-hand.png" alt="right hand image" class="hand-img" style ="position: relative; bottom: 150px;"></a>
+        <a href="picklevel.html"><img src="right-hand.png" alt="right hand image" class="hand-img" style ="position: relative; bottom: 150px;" onclick="hand(2)"></a>
       </div>
     </div>      
     
 
-
   <script src="audio.js"></script>
+
+  <script>
+    function hand(x){
+      if(x == 1){
+        localStorage.setItem("hand", "left");
+      }
+      else{
+        localStorage.setItem("hand", "right");
+      }
+    }
+  </script>
   </body>
 </html>

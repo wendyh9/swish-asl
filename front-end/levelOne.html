@@ -44,31 +44,6 @@
         <center>
       <p1 class="level-title" style = "bottom: 700px;" >Vowels</p1>
     </center>
-    <div>
-      <img id="img" src="" />
-
-      <div id="camera">
-        <video id="input_video"></video>
-        <canvas id="output_canvas"></canvas>
-      </div>
-    </div>
-
-    <div class="loginPopup">
-      <div class="formPopup" id="popupForm">
-        <form action="picklevel.html" class="formContainer">
-          <h2>Well Done!</h2>
-          <p2>
-            if you would like to continue to the next level press "Continue"
-          </p2>
-          <p2> or if you want to pick a level yourself press "Pick Level"</p2>
-          <button type="submit" class="btn">Pick Level</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">
-            Continue
-          </button>
-        </form>
-      </div>
-    </div>
-    
 
     <script>
       function closeForm() {
@@ -78,16 +53,6 @@
 
     <script src="audio.js"></script>
 
-
-      <!-- <div id="container">
-        <img id="img" src="">
-        <div id="camera">
-          <video id="input_video"></video>
-	        <canvas id="output_canvas"></canvas>
-        </div>
-        
-      </div> -->
-
       <div>
         <div class="loginPopup">
           <div class="formPopup" id="popupForm">
@@ -96,7 +61,7 @@
               <span style="font-size:500%;color:yellow;">&starf;</span>
               <span style="font-size:500%;color:yellow;">&starf;</span>
               <span style="font-size:500%;color:yellow;">&starf;</span>
-              <button type="submit" class="btn" style="font-size: medium;">Pick Level</button>
+              <button type="submit" class="btn" style="font-size: medium;"> Choose Category </button>
               <button type="button" class="btn cancel" style="font-size: medium;" onclick="closeForm()">Continue</button>
             </form>
           </div>
@@ -105,14 +70,18 @@
         <img id="img" src="">
 
         <div id="camera">
+          <canvas id="output_canvas"></canvas>
           <video id="input_video"></video>
-	        <canvas id="output_canvas"></canvas>
         </div>
-    </div>
+      </div>
         <div id="correct"> 
           <p5 > Correct </p5>
         </div>
       </div>  
+
+      <div id="incorrect"> 
+        <p6 > Try Again </p6>
+      </div>
 
       <img id="word" src="">
 
